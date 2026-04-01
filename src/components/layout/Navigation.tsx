@@ -37,7 +37,7 @@ export default function Navigation(): React.JSX.Element {
         </a>
 
         {/* Links */}
-        <ul className="hidden items-center gap-10 md:flex" role="list">
+        <ul className="hidden items-center gap-10 md:flex">
           {NAV_LINKS.map((link) =>
             link.isCtaButton ? (
               <li key={link.href}>

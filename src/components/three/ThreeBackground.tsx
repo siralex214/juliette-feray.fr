@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import type * as THREE from 'three'
 
 export default function ThreeBackground(): React.JSX.Element {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -13,7 +14,7 @@ export default function ThreeBackground(): React.JSX.Element {
     let isDisposed = false
     let animationId: number
 
-    const init = async (): Promise<void> => {
+    const init = async (): Promise<(() => void) | undefined> => {
       const THREE = await import('three')
       if (isDisposed) return
 
@@ -156,7 +157,7 @@ export default function ThreeBackground(): React.JSX.Element {
       animate()
 
       // ── Cleanup ──────────────────────────────────────────────────────────────
-      return (): void => {
+      return () => {
         isDisposed = true
         cancelAnimationFrame(animationId)
         window.removeEventListener('mousemove', onMouseMove)

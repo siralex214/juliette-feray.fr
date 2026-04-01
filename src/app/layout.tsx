@@ -1,5 +1,3 @@
-import type React from 'react'
-
 import type { Metadata, Viewport } from 'next'
 import { Caveat, DM_Sans, Playfair_Display } from 'next/font/google'
 

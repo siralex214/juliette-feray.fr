@@ -110,7 +110,7 @@ export default function AboutSection(): React.JSX.Element {
             </p>
 
             {/* Skill chips */}
-            <ul className="mb-8 flex flex-wrap gap-2.5" aria-label="Compétences" role="list">
+            <ul className="mb-8 flex flex-wrap gap-2.5" aria-label="Compétences">
               {SKILLS.map(({ label, rotation }) => (
                 <li
                   key={label}

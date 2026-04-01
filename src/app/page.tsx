@@ -1,6 +1,5 @@
-import type React from 'react'
-
 import type { Metadata } from 'next'
+
 import Footer from '@/components/layout/Footer'
 import Navigation from '@/components/layout/Navigation'
 import AboutSection from '@/components/sections/AboutSection'
