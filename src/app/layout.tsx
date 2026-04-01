@@ -35,7 +35,14 @@ export const metadata: Metadata = {
   },
   description:
     "Portfolio de Juliette Féray, Community Manager et Chargée de Communication. 5 ans d'expérience en communication digitale, photographie et gestion de contenu à Rouen.",
-  robots: { index: true, follow: true },
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
