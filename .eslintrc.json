@@ -1,0 +1,46 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/strict",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/strict",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["@typescript-eslint", "react", "react-hooks", "jsx-a11y", "import"],
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/explicit-function-return-type": "warn",
+    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "@typescript-eslint/consistent-type-imports": ["error", { "prefer": "type-imports" }],
+    "@typescript-eslint/no-non-null-assertion": "error",
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+    "react/display-name": "warn",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "jsx-a11y/anchor-is-valid": "warn",
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+        "newlines-between": "always",
+        "alphabetize": { "order": "asc", "caseInsensitive": true }
+      }
+    ],
+    "import/no-duplicates": "error",
+    "no-console": ["warn", { "allow": ["warn", "error"] }]
+  },
+  "settings": {
+    "react": { "version": "detect" },
+    "import/resolver": {
+      "typescript": { "alwaysTryTypes": true }
+    }
+  }
+}

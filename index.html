@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juliette Féray — Community Manager & Communication</title>
+  <meta name="description" content="Portfolio de Juliette Féray, Community Manager et Chargée de Communication. 5 ans d'expérience en communication digitale, photographie et gestion de contenu à Rouen.">
+  <meta property="og:title" content="Juliette Féray — Community Manager & Communication">
+  <meta property="og:description" content="Portfolio · Community Management · Photographie · Stratégie digitale">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─────────────────────────────────────────
+       RESET
+    ───────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img, svg { display: block; max-width: 100%; }
+    button { font: inherit; cursor: pointer; border: none; background: none; }
+    a { color: inherit; }
+    ul { list-style: none; }
+
+    /* ─────────────────────────────────────────
+       VARIABLES
+    ───────────────────────────────────────── */
+    :root {
+      --cream:      #F5F0E8;
+      --paper:      #FDFAF3;
+      --ink:        #1C1A17;
+      --ink-mid:    #3A3835;
+      --ink-light:  #6B6760;
+      --red:        #A6171C;
+      --red-dark:   #7D1115;
+      --gold:       #C8A84B;
+      --border:     rgba(28, 26, 23, 0.1);
+      --shadow-sm:  2px 3px 8px rgba(28,26,23,0.10);
+      --shadow-md:  4px 6px 20px rgba(28,26,23,0.14);
+      --shadow-lg:  8px 12px 40px rgba(28,26,23,0.18);
+
+      --font-hand:    'Caveat', cursive;
+      --font-display: 'Playfair Display', serif;
+      --font-body:    'DM Sans', sans-serif;
+
+      --ease:       cubic-bezier(0.4, 0, 0.2, 1);
+      --t-fast:     150ms;
+      --t-base:     250ms;
+      --t-slow:     500ms;
+
+      --nav-h: 68px;
+    }
+
+    /* ─────────────────────────────────────────
+       BASE
+    ───────────────────────────────────────── */
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* ─────────────────────────────────────────
+       GRAIN OVERLAY — effet papier scanné
+    ───────────────────────────────────────── */
+    .grain {
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 9998;
+      opacity: 0.05;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 250px 250px;
+    }
+
+    /* ─────────────────────────────────────────
+       THREE.JS CANVAS
+    ───────────────────────────────────────── */
+    #three-canvas {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0; pointer-events: none;
+    }
+
+    /* ─────────────────────────────────────────
+       LAYOUT
+    ───────────────────────────────────────── */
+    .site-wrap { position: relative; z-index: 1; }
+
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 5vw, 64px);
+    }
+
+    /* ─────────────────────────────────────────
+       TYPOGRAPHY
+    ───────────────────────────────────────── */
+    h1, h2, h3 { font-family: var(--font-display); line-height: 1.08; }
+
+    .stamp {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--red);
+      border: 1.5px solid var(--red);
+      padding: 4px 12px;
+      transform: rotate(-1.5deg);
+      margin-bottom: 1.25rem;
+    }
+
+    .hand { font-family: var(--font-hand); }
+
+    /* ─────────────────────────────────────────
+       BUTTONS
+    ───────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 36px;
+      font-family: var(--font-body);
+      font-size: 0.875rem; font-weight: 500;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      transition: background var(--t-base) var(--ease),
+                  transform var(--t-fast) var(--ease),
+                  box-shadow var(--t-base) var(--ease);
+      position: relative;
+    }
+
+    .btn-dark {
+      background: var(--ink); color: var(--paper);
+      box-shadow: 4px 4px 0 var(--red);
+    }
+    .btn-dark:hover {
+      background: var(--red);
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--red-dark);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--paper);
+      border: 1.5px solid rgba(253,250,243,0.4);
+    }
+    .btn-outline:hover { border-color: var(--red); color: var(--red); }
+
+    /* ─────────────────────────────────────────
+       NAVIGATION
+    ───────────────────────────────────────── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      z-index: 200;
+      background: rgba(245, 240, 232, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow var(--t-base) var(--ease);
+    }
+    .nav.scrolled { box-shadow: 0 2px 24px rgba(28,26,23,0.09); }
+
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 100%;
+      max-width: 1160px; margin: 0 auto;
+      padding: 0 clamp(20px, 5vw, 64px);
+    }
+
+    .nav-logo {
+      font-family: var(--font-hand);
+      font-size: 1.9rem; font-weight: 700;
+      color: var(--ink); text-decoration: none;
+      line-height: 1;
+    }
+    .nav-logo .star { color: var(--red); font-size: 1.3rem; }
+
+    .nav-links {
+      display: flex; gap: 2.5rem; align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.8rem; font-weight: 400;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none; color: var(--ink-mid);
+      position: relative; padding-bottom: 2px;
+      transition: color var(--t-base) var(--ease);
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: -2px; left: 0;
+      width: 0; height: 1.5px;
+      background: var(--red);
+      transition: width var(--t-base) var(--ease);
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      padding: 8px 20px !important;
+      font-size: 0.78rem !important;
+      background: var(--ink);
+      color: var(--paper) !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--red) !important; color: var(--paper) !important; }
+
+    /* ─────────────────────────────────────────
+       HERO
+    ───────────────────────────────────────── */
+    .hero {
+      min-height: 100svh;
+      padding-top: var(--nav-h);
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+    }
+
+    .hero-container {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 4rem; align-items: center;
+      padding: 4rem 0 6rem;
+      width: 100%;
+    }
+
+    /* Left text */
+    .hero-eyebrow {
+      font-family: var(--font-hand);
+      font-size: 1.25rem; color: var(--red);
+      display: block; margin-bottom: 1rem;
+      transform: rotate(-1.2deg);
+    }
+
+    .hero-title {
+      font-size: clamp(4rem, 7.5vw, 7rem);
+      font-weight: 900; color: var(--ink);
+      line-height: 0.93; margin-bottom: 1.75rem;
+      letter-spacing: -0.02em;
+    }
+    .hero-title .italic-red { color: var(--red); font-style: italic; }
+
+    .hero-meta {
+      display: flex; align-items: center; gap: 1rem;
+      font-size: 0.875rem; color: var(--ink-light);
+      margin-bottom: 2.5rem;
+    }
+    .hero-meta::before {
+      content: '';
+      width: 32px; height: 1px;
+      background: var(--ink-light); flex-shrink: 0;
+    }
+
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    /* Right visual */
+    .hero-visual {
+      position: relative;
+      display: flex; justify-content: center; align-items: center;
+      min-height: 380px;
+    }
+
+    .hero-card {
+      background: var(--paper);
+      padding: 2rem 2rem 2.5rem;
+      max-width: 280px; width: 100%;
+      box-shadow: 7px 9px 0 var(--red), 9px 11px 28px rgba(0,0,0,0.14);
+      transform: rotate(2.5deg);
+      position: relative;
+      z-index: 2;
+    }
+    /* Tape */
+    .hero-card::before {
+      content: '';
+      position: absolute; top: -14px; left: 50%;
+      transform: translateX(-50%) rotate(-2deg);
+      width: 80px; height: 26px;
+      background: rgba(200, 168, 75, 0.42);
+      border-radius: 2px;
+    }
+
+    .hero-card-avatar {
+      width: 120px; height: 120px; margin: 0 auto 1.5rem;
+      background: var(--cream); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .hero-card-name {
+      font-family: var(--font-hand);
+      font-size: 1.65rem; font-weight: 700;
+      text-align: center; line-height: 1.1;
+    }
+    .hero-card-role {
+      text-align: center; font-size: 0.72rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--ink-light); margin-top: 0.4rem;
+    }
+    .hero-card-tag {
+      display: flex; justify-content: center; margin-top: 1.25rem;
+    }
+    .hero-card-tag span {
+      font-family: var(--font-hand);
+      font-size: 0.95rem;
+      background: var(--red); color: var(--paper);
+      padding: 3px 12px;
+    }
+
+    /* Floating deco elements */
+    .deco {
+      position: absolute; pointer-events: none;
+      animation: floatDeco var(--dur, 4s) ease-in-out infinite;
+      animation-delay: var(--delay, 0s);
+    }
+    .deco-stars { top: -16px; right: -24px; width: 110px; --dur: 5s; }
+    .deco-wave  { bottom: 20px; left: -44px; width: 150px; --dur: 6s; --delay: -1s; }
+    .deco-clip  { top: 36%; right: -44px; width: 44px; --dur: 3.8s; --delay: -0.5s; }
+    .deco-film  { bottom: -20px; right: 20px; width: 60px; opacity: 0.7; --dur: 7s; --delay: -2s; }
+
+    @keyframes floatDeco {
+      0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+      50%       { transform: translateY(-14px) rotate(var(--r, 0deg)); }
+    }
+
+    .hero-scroll {
+      position: absolute; bottom: 2rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      font-family: var(--font-hand); font-size: 0.85rem;
+      color: var(--ink-light);
+      animation: scrollBounce 2s ease-in-out infinite;
+    }
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(7px); }
+    }
+
+    /* ─────────────────────────────────────────
+       ABOUT
+    ───────────────────────────────────────── */
+    .about {
+      padding: clamp(5rem, 10vw, 10rem) 0;
+      position: relative;
+    }
+
+    /* Decorative red wave separator top */
+    .about::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--red) 0px, var(--red) 20px,
+        transparent 20px, transparent 30px
+      );
+      opacity: 0.35;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 5rem; align-items: start;
+    }
+
+    .about-title {
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+      margin-bottom: 1.5rem;
+    }
+    .about-title em { color: var(--red); font-style: italic; }
+
+    .about-body p {
+      color: var(--ink-light);
+      margin-bottom: 1rem; max-width: 540px;
+    }
+
+    .skills-cloud {
+      display: flex; flex-wrap: wrap; gap: 0.6rem;
+      margin: 2rem 0 2.5rem;
+    }
+    .skill-chip {
+      font-family: var(--font-hand);
+      font-size: 1rem;
+      padding: 5px 14px;
+      border: 1.5px solid var(--ink);
+      background: var(--paper);
+      box-shadow: 2px 2px 0 var(--ink);
+      transform: rotate(var(--r, 0deg));
+      display: inline-block;
+    }
+
+    .stat-badge {
+      display: inline-flex; align-items: baseline; gap: 0.5rem;
+      background: var(--red); color: var(--paper);
+      padding: 0.75rem 1.5rem;
+      transform: rotate(-1deg);
+      box-shadow: 3px 3px 0 var(--red-dark);
+    }
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 2.8rem; font-weight: 900; line-height: 1;
+    }
+    .stat-label { font-size: 0.8rem; opacity: 0.88; }
+
+    /* Right column */
+    .about-visual {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 1.5rem;
+    }
+
+    .polaroid {
+      background: var(--paper);
+      padding: 12px 12px 44px;
+      box-shadow: var(--shadow-md);
+      transform: rotate(-4deg);
+      position: relative; max-width: 200px;
+    }
+    .polaroid::before {
+      content: '';
+      position: absolute; top: -12px; left: 50%;
+      transform: translateX(-50%) rotate(2deg);
+      width: 64px; height: 22px;
+      background: rgba(200, 168, 75, 0.48);
+      border-radius: 2px;
+    }
+    .polaroid-img {
+      width: 176px; height: 176px;
+      background: var(--cream);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .polaroid-caption {
+      text-align: center; margin-top: 0.75rem;
+      font-family: var(--font-hand); font-size: 1rem;
+      color: var(--ink-light);
+    }
+
+    .about-annotation {
+      font-family: var(--font-hand);
+      font-size: 1.2rem; color: var(--red);
+      transform: rotate(3deg);
+      margin-top: -0.75rem;
+    }
+
+    .about-pictos {
+      display: flex; gap: 1.5rem; align-items: center;
+      margin-top: 0.5rem; opacity: 0.55;
+    }
+
+    /* ─────────────────────────────────────────
+       PROJECTS
+    ───────────────────────────────────────── */
+    .projects {
+      background: var(--ink);
+      color: var(--paper);
+      padding: clamp(4rem, 8vw, 8rem) 0;
+      position: relative; overflow: hidden;
+    }
+
+    /* Red top bar */
+    .projects::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 5px; background: var(--red);
+    }
+
+    .projects .stamp { color: rgba(253,250,243,0.6); border-color: rgba(253,250,243,0.3); }
+
+    .projects-title {
+      font-size: clamp(2.4rem, 4vw, 3.4rem);
+      color: var(--paper); margin-bottom: 0.5rem;
+    }
+    .projects-title em { color: var(--red); font-style: italic; }
+
+    .projects-sub {
+      font-family: var(--font-hand);
+      font-size: 1.1rem; color: rgba(253,250,243,0.5);
+      margin-bottom: 3rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex; flex-wrap: wrap;
+      border-bottom: 1.5px solid rgba(253,250,243,0.12);
+      margin-bottom: 0;
+    }
+    .tab-btn {
+      padding: 11px 22px;
+      font-family: var(--font-hand); font-size: 1.05rem;
+      background: rgba(253,250,243,0.04);
+      border: 1px solid rgba(253,250,243,0.1);
+      border-bottom: none;
+      color: rgba(253,250,243,0.45);
+      position: relative; top: 1.5px;
+      transition: all var(--t-base) var(--ease);
+    }
+    .tab-btn:hover:not(.active) {
+      background: rgba(253,250,243,0.08);
+      color: rgba(253,250,243,0.7);
+    }
+    .tab-btn.active {
+      background: var(--red);
+      border-color: var(--red);
+      color: var(--paper);
+    }
+
+    /* Panels */
+    .panel {
+      display: none; padding: 3rem 0 1rem;
+      animation: panelIn 0.4s var(--ease) both;
+    }
+    .panel.active { display: block; }
+
+    @keyframes panelIn {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .panel-layout {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      gap: 3.5rem; align-items: start;
+    }
+
+    .panel-info h3 {
+      font-size: 2rem; color: var(--paper);
+      margin-bottom: 1rem;
+    }
+    .panel-info p {
+      font-size: 0.925rem;
+      color: rgba(253,250,243,0.65);
+      line-height: 1.72; margin-bottom: 0.85rem;
+    }
+
+    .panel-tags {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+    .ptag {
+      font-size: 0.7rem; letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border: 1px solid var(--red); color: var(--red);
+    }
+
+    /* Photo grid */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.1rem;
+    }
+
+    .pola {
+      background: var(--paper);
+      padding: 9px 9px 32px;
+      box-shadow: 3px 5px 14px rgba(0,0,0,0.35);
+      transform: rotate(var(--r, 0deg));
+      transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+      cursor: pointer; position: relative;
+    }
+    .pola:hover {
+      transform: rotate(0deg) scale(1.05) !important;
+      box-shadow: 8px 10px 28px rgba(0,0,0,0.45);
+      z-index: 10;
+    }
+    .pola-img {
+      width: 100%; aspect-ratio: 4/3;
+      background: var(--bg, linear-gradient(135deg, #2a2826 0%, #1a1816 100%));
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .pola-img svg { opacity: 0.18; }
+    .pola-cap {
+      text-align: center; margin-top: 0.5rem;
+      font-family: var(--font-hand); font-size: 0.82rem;
+      color: var(--ink-light);
+    }
+
+    /* Film strip decorative */
+    .film-strip {
+      display: flex; align-items: stretch;
+      background: #1a1816;
+      border-radius: 3px; overflow: hidden;
+      margin-top: 2rem; height: 14px;
+      opacity: 0.4;
+    }
+    .film-hole {
+      width: 10px; height: 10px;
+      background: var(--cream); border-radius: 2px;
+      margin: 2px 3px; flex-shrink: 0;
+    }
+
+    /* ─────────────────────────────────────────
+       CONTACT
+    ───────────────────────────────────────── */
+    .contact {
+      padding: clamp(5rem, 10vw, 10rem) 0;
+      position: relative;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      gap: 5rem; align-items: start;
+    }
+
+    .contact-title {
+      font-size: clamp(2.2rem, 3.5vw, 3rem);
+      margin-bottom: 1.25rem;
+    }
+    .contact-title em { color: var(--red); font-style: italic; }
+
+    .contact-info-text {
+      color: var(--ink-light); margin-bottom: 2.5rem;
+      max-width: 320px;
+    }
+
+    .contact-list {
+      display: flex; flex-direction: column; gap: 1.1rem;
+    }
+    .contact-item {
+      display: flex; align-items: center; gap: 0.875rem;
+      font-size: 0.9rem; color: var(--ink-mid);
+    }
+    .contact-icon {
+      width: 34px; height: 34px; flex-shrink: 0;
+      background: var(--red); color: var(--paper);
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .contact-deco {
+      margin-top: 3rem; opacity: 0.6;
+    }
+
+    /* Form card */
+    .form-card {
+      background: var(--paper);
+      padding: 2.5rem;
+      box-shadow: 6px 8px 0 rgba(28,26,23,0.07), 0 20px 40px rgba(0,0,0,0.07);
+      position: relative;
+    }
+    .form-card::before {
+      content: '';
+      position: absolute; top: -14px; left: 44px;
+      width: 90px; height: 26px;
+      background: rgba(200,168,75,0.4);
+      border-radius: 2px; transform: rotate(1deg);
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+
+    .form-group {
+      display: flex; flex-direction: column; gap: 0.4rem;
+      margin-bottom: 1.25rem;
+    }
+    .form-group label {
+      font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--ink-light);
+    }
+    .form-group input,
+    .form-group textarea {
+      padding: 12px 14px;
+      border: 1.5px solid var(--border);
+      background: var(--cream);
+      font-family: var(--font-body); font-size: 0.95rem;
+      color: var(--ink); outline: none;
+      transition: border-color var(--t-base) var(--ease);
+      border-radius: 0; resize: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--red); }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--ink-light); opacity: 0.6; }
+    .form-group textarea { height: 130px; }
+
+    .form-submit { margin-top: 0.5rem; }
+
+    /* ─────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────── */
+    .footer {
+      background: var(--ink); color: rgba(253,250,243,0.45);
+      padding: 2.25rem 0;
+    }
+    .footer-inner {
+      max-width: 1160px; margin: 0 auto;
+      padding: 0 clamp(20px, 5vw, 64px);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-logo {
+      font-family: var(--font-hand);
+      font-size: 1.5rem; color: var(--paper);
+    }
+    .footer-copy { font-size: 0.78rem; }
+    .footer-back {
+      font-size: 0.75rem; letter-spacing: 0.1em;
+      text-transform: uppercase; text-decoration: none;
+      color: rgba(253,250,243,0.4);
+      transition: color var(--t-base) var(--ease);
+    }
+    .footer-back:hover { color: var(--red); }
+
+    /* ─────────────────────────────────────────
+       REVEAL ANIMATION
+    ───────────────────────────────────────── */
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ─────────────────────────────────────────
+       RESPONSIVE
+    ───────────────────────────────────────── */
+    @media (max-width: 960px) {
+      .hero-container { grid-template-columns: 1fr; text-align: center; }
+      .hero-visual { display: none; }
+      .hero-meta { justify-content: center; }
+      .hero-actions { justify-content: center; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-visual { display: none; }
+      .panel-layout { grid-template-columns: 1fr; }
+      .photo-grid { grid-template-columns: repeat(3, 1fr); }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .photo-grid { grid-template-columns: repeat(2, 1fr); }
+      .form-row { grid-template-columns: 1fr; }
+      .tab-btn { font-size: 0.9rem; padding: 9px 14px; }
+      .footer-inner { flex-direction: column; align-items: center; text-align: center; }
+    }
+
+    /* ─────────────────────────────────────────
+       ACCESSIBILITY
+    ───────────────────────────────────────── */
+    :focus-visible {
+      outline: 2px solid var(--red);
+      outline-offset: 3px;
+      border-radius: 1px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── GRAIN OVERLAY ──────────────────────────────── -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ── THREE.JS CANVAS ───────────────────────────── -->
+<canvas id="three-canvas" aria-hidden="true"></canvas>
+
+<!-- ── SITE CONTENT ──────────────────────────────── -->
+<div class="site-wrap">
+
+  <!-- ════════════════════════════════════════
+       NAVIGATION
+  ════════════════════════════════════════ -->
+  <nav class="nav" id="nav" aria-label="Navigation principale">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="Juliette Féray — Accueil">
+        JF<span class="star">★</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#projects">Réalisations</a></li>
+        <li><a href="#contact" class="nav-cta btn">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════════════════
+       HERO
+  ════════════════════════════════════════ -->
+  <section id="hero" class="hero" aria-label="Introduction">
+    <div class="container">
+      <div class="hero-container">
+
+        <!-- Left: Text content -->
+        <div class="hero-text">
+          <span class="hero-eyebrow">Community Manager &amp; Communication</span>
+          <h1 class="hero-title">
+            Juliette<br>
+            <span class="italic-red">Féray.</span>
+          </h1>
+          <p class="hero-meta">5 ans d'expérience · Rouen, Normandie</p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-dark">Voir mes réalisations</a>
+            <a href="#contact" class="btn btn-outline" style="border-color: var(--border); color: var(--ink-light);">Me contacter</a>
+          </div>
+        </div>
+
+        <!-- Right: Visual card -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-card">
+            <div class="hero-card-avatar">
+              <!-- Profile silhouette SVG -->
+              <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="40" cy="27" r="17" fill="#A6171C" opacity="0.82"/>
+                <ellipse cx="40" cy="66" rx="26" ry="19" fill="#A6171C" opacity="0.82"/>
+              </svg>
+            </div>
+            <div class="hero-card-name">Juliette Féray</div>
+            <div class="hero-card-role">Community Manager</div>
+            <div class="hero-card-tag">
+              <span>Disponible ✓</span>
+            </div>
+          </div>
+
+          <!-- ── Decorative floating elements ── -->
+
+          <!-- Gold stars -->
+          <div class="deco deco-stars" style="--r: 6deg">
+            <svg viewBox="0 0 120 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="14,3 16.5,10.5 24,10.5 18,15 20.5,22 14,17.5 7.5,22 10,15 4,10.5 11.5,10.5" fill="#C8A84B"/>
+              <polygon points="68,0 71,9 80,9 73,14 76,23 68,18 60,23 63,14 56,9 65,9" fill="#C8A84B"/>
+              <polygon points="100,18 102.5,25 110,25 104,29.5 106.5,37 100,32.5 93.5,37 96,29.5 90,25 97.5,25" fill="#C8A84B" opacity="0.7"/>
+              <polygon points="30,48 32,54 38,54 33.5,57.5 35.5,63.5 30,60 24.5,63.5 26.5,57.5 22,54 28,54" fill="#C8A84B" opacity="0.85"/>
+              <polygon points="88,55 89.5,60 95,60 90.5,63 92,68 88,65.5 84,68 85.5,63 81,60 86.5,60" fill="#C8A84B" opacity="0.65"/>
+            </svg>
+          </div>
+
+          <!-- Red wavy line -->
+          <div class="deco deco-wave" style="--r: -3deg">
+            <svg viewBox="0 0 160 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5,38 C22,8 42,55 62,25 C82,-5 102,50 122,20 C138,2 150,22 158,17"
+                    stroke="#A6171C" stroke-width="8" stroke-linecap="round" fill="none"/>
+            </svg>
+          </div>
+
+          <!-- Binder clip -->
+          <div class="deco deco-clip" style="--r: 10deg">
+            <svg viewBox="0 0 44 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="36" width="32" height="26" rx="2" fill="#A6171C"/>
+              <path d="M14,36 L14,14 C14,9.6 17.6,6 22,6 C26.4,6 30,9.6 30,14 L30,36"
+                    stroke="#9E9E9E" stroke-width="4" stroke-linecap="round" fill="none"/>
+              <rect x="6" y="36" width="32" height="8" fill="#8A1015"/>
+              <rect x="13" y="56" width="5" height="9" rx="1.5" fill="#8A1015" transform="rotate(-18,15.5,60.5)"/>
+              <rect x="26" y="56" width="5" height="9" rx="1.5" fill="#8A1015" transform="rotate(18,28.5,60.5)"/>
+            </svg>
+          </div>
+
+          <!-- Mini film strip -->
+          <div class="deco deco-film" style="--r: -5deg">
+            <svg viewBox="0 0 40 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="0" width="32" height="80" rx="2" fill="#1a1816"/>
+              <rect x="8" y="4" width="6" height="5" rx="1" fill="#F5F0E8" opacity="0.5"/>
+              <rect x="26" y="4" width="6" height="5" rx="1" fill="#F5F0E8" opacity="0.5"/>
+              <rect x="8" y="71" width="6" height="5" rx="1" fill="#F5F0E8" opacity="0.5"/>
+              <rect x="26" y="71" width="6" height="5" rx="1" fill="#F5F0E8" opacity="0.5"/>
+              <rect x="8" y="14" width="24" height="16" rx="1" fill="#F5F0E8" opacity="0.1"/>
+              <rect x="8" y="34" width="24" height="16" rx="1" fill="#F5F0E8" opacity="0.1"/>
+              <rect x="8" y="54" width="24" height="16" rx="1" fill="#F5F0E8" opacity="0.1"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero-scroll" aria-hidden="true">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M8 2 L8 14 M3 9 L8 14 L13 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>Défiler</span>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       ABOUT
+  ════════════════════════════════════════ -->
+  <section id="about" class="about" aria-labelledby="about-title">
+    <div class="container">
+      <div class="about-grid">
+
+        <!-- Text column -->
+        <div class="about-body reveal">
+          <span class="stamp">À propos</span>
+          <h2 class="about-title" id="about-title">
+            Qui suis-<em>je</em>&nbsp;?
+          </h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Passionnée par la communication et la création de contenu depuis plus de 5 ans, je mets ma créativité et mon sens stratégique au service de vos projets.</p>
+          <p>De la gestion des réseaux sociaux à la production photographique, en passant par la conception d'affiches et la stratégie de marque — j'aime raconter des histoires qui résonnent et créer des identités visuelles qui marquent les esprits.</p>
+
+          <div class="skills-cloud" role="list" aria-label="Compétences">
+            <span class="skill-chip" style="--r:-2deg" role="listitem">Community Management</span>
+            <span class="skill-chip" style="--r:1.5deg" role="listitem">Photographie</span>
+            <span class="skill-chip" style="--r:-1deg" role="listitem">Création de contenu</span>
+            <span class="skill-chip" style="--r:2.5deg" role="listitem">Stratégie digitale</span>
+            <span class="skill-chip" style="--r:-1.5deg" role="listitem">Design graphique</span>
+            <span class="skill-chip" style="--r:1deg" role="listitem">Réseaux sociaux</span>
+          </div>
+
+          <div class="stat-badge" aria-label="5 ans d'expérience en communication">
+            <span class="stat-number">5</span>
+            <span class="stat-label">ans d'expérience<br>en communication</span>
+          </div>
+        </div>
+
+        <!-- Visual column -->
+        <div class="about-visual reveal reveal-delay-2" aria-hidden="true">
+          <div class="polaroid">
+            <div class="polaroid-img">
+              <!-- Megaphone illustration SVG -->
+              <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="34" width="22" height="22" rx="3" fill="#E5DDD0"/>
+                <rect x="8" y="34" width="22" height="22" rx="3" stroke="#C0B8A8" stroke-width="1.5" fill="none"/>
+                <path d="M30,26 L70,14 L70,76 L30,64 Z" fill="#A6171C" opacity="0.85"/>
+                <path d="M30,26 L70,14 L70,76 L30,64 Z" stroke="#8A1015" stroke-width="1" fill="none"/>
+                <ellipse cx="73" cy="45" rx="11" ry="18" fill="#A6171C" opacity="0.6"/>
+                <rect x="16" y="56" width="10" height="20" rx="2" fill="#C0B8A8"/>
+                <!-- Sound waves -->
+                <path d="M78,35 Q84,45 78,55" stroke="#A6171C" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.4"/>
+                <path d="M82,30 Q91,45 82,60" stroke="#A6171C" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.25"/>
+              </svg>
+            </div>
+            <p class="polaroid-caption">Communication !</p>
+          </div>
+
+          <div class="about-annotation">← C'est moi !</div>
+
+          <!-- Small pictos row -->
+          <div class="about-pictos">
+            <!-- Disposable camera icon -->
+            <svg width="38" height="38" viewBox="0 0 38 38" fill="none" aria-label="Appareil photo">
+              <rect x="4" y="12" width="30" height="20" rx="3" stroke="var(--ink)" stroke-width="1.4" fill="none"/>
+              <circle cx="19" cy="22" r="6" stroke="var(--ink)" stroke-width="1.4" fill="none"/>
+              <circle cx="19" cy="22" r="2.5" fill="var(--ink)" opacity="0.25"/>
+              <rect x="13" y="8" width="12" height="5" rx="1.5" stroke="var(--ink)" stroke-width="1.4" fill="none"/>
+              <rect x="26" y="14" width="5" height="5" rx="1" stroke="var(--ink)" stroke-width="1.2" fill="none"/>
+              <line x1="8" y1="22" x2="11" y2="22" stroke="var(--ink)" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+            <!-- Coffee cup icon -->
+            <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-label="Café">
+              <path d="M7,16 L7,26 Q7,30 11,30 L23,30 Q27,30 27,26 L27,16 Z" stroke="var(--ink)" stroke-width="1.4" fill="none"/>
+              <path d="M27,19 Q33,19 33,23 Q33,27 27,27" stroke="var(--ink)" stroke-width="1.4" fill="none"/>
+              <path d="M13,10 C13,6 16,6 16,3" stroke="var(--ink)" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+              <path d="M19,10 C19,7 22,7 22,4" stroke="var(--ink)" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+              <!-- steam splash -->
+              <path d="M10,15 Q12,12 14,10 Q13,12 17,11 Q14,12 18,10" stroke="var(--ink)" stroke-width="0.8" stroke-linecap="round" fill="none" opacity="0.5"/>
+            </svg>
+            <!-- Phone icon -->
+            <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-label="Téléphone">
+              <path d="M9,6 C9,6 11,4 13,6 L16,11 C17,13 15,14 15,16 C15,18 19,22 21,22 C23,22 23,20 25,21 L30,24 C32,26 30,28 30,28 C24,34 4,14 9,6Z" stroke="var(--ink)" stroke-width="1.4" fill="none"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       PROJECTS
+  ════════════════════════════════════════ -->
+  <section id="projects" class="projects" aria-labelledby="projects-title">
+    <div class="container">
+
+      <div class="reveal">
+        <span class="stamp">Réalisations</span>
+        <h2 class="projects-title" id="projects-title">Mes <em>projets</em></h2>
+        <p class="projects-sub">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <polygon points="10,2 12,7.5 18,7.5 13.5,11 15.5,16.5 10,13 4.5,16.5 6.5,11 2,7.5 8,7.5" fill="#C8A84B"/>
+          </svg>
+          Explorez mes différentes collaborations
+        </p>
+      </div>
+
+      <!-- ── TABS ── -->
+      <div class="tabs" role="tablist" aria-label="Catégories de projets">
+        <button class="tab-btn active" role="tab" id="tab-photo-btn"   data-tab="photo"   aria-selected="true"  aria-controls="panel-photo">📷 Photo</button>
+        <button class="tab-btn"        role="tab" id="tab-tennis-btn"  data-tab="tennis"  aria-selected="false" aria-controls="panel-tennis">🎾 Tennis</button>
+        <button class="tab-btn"        role="tab" id="tab-socotec-btn" data-tab="socotec" aria-selected="false" aria-controls="panel-socotec">Socotec</button>
+        <button class="tab-btn"        role="tab" id="tab-rouen-btn"   data-tab="rouen"   aria-selected="false" aria-controls="panel-rouen">Rouen Point</button>
+        <button class="tab-btn"        role="tab" id="tab-fictif-btn"  data-tab="fictif"  aria-selected="false" aria-controls="panel-fictif">★ Fictif</button>
+      </div>
+
+      <!-- ── PANEL: PHOTO ── -->
+      <div class="panel active" id="panel-photo" role="tabpanel" aria-labelledby="tab-photo-btn">
+        <div class="panel-layout">
+          <div class="panel-info">
+            <h3>Photographie</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Passionnée par l'image sous toutes ses formes, je pratique la photographie argentique et numérique depuis le début de mon parcours.</p>
+            <p>Ut enim ad minim veniam, chaque cliché est une invitation à ralentir, à observer, à raconter. Des portraits intimes aux reportages dynamiques, la photographie est au cœur de mon expression créative.</p>
+            <div class="panel-tags">
+              <span class="ptag">Photo argentique</span>
+              <span class="ptag">Photo numérique</span>
+              <span class="ptag">Portrait</span>
+              <span class="ptag">Reportage</span>
+            </div>
+            <!-- Film strip -->
+            <div class="film-strip" aria-hidden="true">
+              <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+              <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+              <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+              <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+            </div>
+          </div>
+          <div class="photo-grid">
+            <div class="pola" style="--r:-2.5deg">
+              <div class="pola-img" style="--bg:linear-gradient(135deg,#2a2826,#1a1816)">
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="14" fill="white"/><circle cx="18" cy="18" r="9" stroke="#aaa" stroke-width="1.5" fill="none"/><circle cx="18" cy="18" r="4" fill="#aaa" opacity="0.5"/></svg>
+              </div>
+              <p class="pola-cap">Argentique · 35mm</p>
+            </div>
+            <div class="pola" style="--r:2deg">
+              <div class="pola-img" style="--bg:linear-gradient(135deg,#2f2a26,#1e1816)">
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect x="6" y="10" width="24" height="16" rx="2" fill="white" opacity="0.2"/><circle cx="18" cy="18" r="5" fill="white" opacity="0.3"/></svg>
+              </div>
+              <p class="pola-cap">Portrait</p>
+            </div>
+            <div class="pola" style="--r:-1deg">
+              <div class="pola-img" style="--bg:linear-gradient(135deg,#26282a,#16181a)">
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect x="6" y="10" width="24" height="16" rx="2" fill="white" opacity="0.2"/></svg>
+              </div>
+              <p class="pola-cap">Reportage</p>
+            </div>
+            <div class="pola" style="--r:2.5deg">
+              <div class="pola-img" style="--bg:linear-gradient(135deg,#2a2826,#1a1816)">
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect x="6" y="10" width="24" height="16" rx="2" fill="white" opacity="0.2"/></svg>
+              </div>
+              <p class="pola-cap">Studio</p>
+            </div>
+            <div class="pola" style="--r:-2deg">
+              <div class="pola-img" style="--bg:linear-gradient(135deg,#28282a,#18181a)">
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect x="6" y="10" width="24" height="16" rx="2" fill="white" opacity="0.2"/></svg>
+              </div>
+              <p class="pola-cap">Événement</p>
+            </div>
+            <div class="pola" style="--r:1deg">
+              <div class="pola-img" style="--bg:linear-gradient(135deg,#2a2826,#181614)">
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect x="6" y="10" width="24" height="16" rx="2" fill="white" opacity="0.2"/></svg>
+              </div>
+              <p class="pola-cap">Nature</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PANEL: TENNIS ── -->
+      <div class="panel" id="panel-tennis" role="tabpanel" aria-labelledby="tab-tennis-btn">
+        <div class="panel-layout">
+          <div class="panel-info">
+            <h3>Tennis</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gestion complète de la communication digitale d'un club de tennis — de la stratégie éditoriale à la production des visuels.</p>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Création de contenu engageant pour valoriser les athlètes et fédérer la communauté du club.</p>
+            <div class="panel-tags">
+              <span class="ptag">Instagram</span>
+              <span class="ptag">LinkedIn</span>
+              <span class="ptag">Affiches</span>
+              <span class="ptag">Community Management</span>
+            </div>
+          </div>
+          <div class="photo-grid">
+            <div class="pola" style="--r:1.5deg">
+              <div class="pola-img" style="--bg:linear-gradient(135deg,#1a3a1a,#0d2a0d)"></div>
+              <p class="pola-cap">Post Instagram</p>
+            </div>
+            <div class="pola" style="--r:-2deg">
+              <div class="pola-img" style="--bg:linear-gradient(135deg,#1e3e1e,#0f2a0f)"></div>
+              <p class="pola-cap">Affiche tournoi</p>
+            </div>
+            <div class="pola" style="--r:2.5deg">
+              <div class="pola-img" style="--bg:linear-gradient(135deg,#1a3a1a,#0d2a0d)"></div>
+              <p class="pola-cap">Story</p>
+            </div>
+            <div class="pola" style="--r:-1deg">
+              <div class="pola-img" style="--bg:linear-gradient(135deg,#1a3a1a,#0d2a0d)"></div>
+              <p class="pola-cap">Newsletter</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PANEL: SOCOTEC ── -->
+      <div class="panel" id="panel-socotec" role="tabpanel" aria-labelledby="tab-socotec-btn">
+        <div class="panel-layout">
+          <div class="panel-info">
+            <h3>Socotec Smart Solutions</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Développement et déploiement de la stratégie de communication digitale pour Socotec Smart Solutions, acteur majeur de l'innovation industrielle.</p>
+            <p>Excepteur sint occaecat cupidatat non proident. Création de contenus B2B percutants, gestion des plateformes LinkedIn, et conception d'infographies pour valoriser l'expertise de la marque.</p>
+            <div class="panel-tags">
+              <span class="ptag">LinkedIn B2B</span>
+              <span class="ptag">Infographies</span>
+              <span class="ptag">Comm. interne</span>
+              <span class="ptag">Veille stratégique</span>
+            </div>
+          </div>
+          <div class="photo-grid">
+            <div class="pola" style="--r:-1.5deg">
+              <div class="pola-img" style="--bg:linear-gradient(135deg,#1a2a3a,#0d1a2a)"></div>
+              <p class="pola-cap">Campagne LinkedIn</p>
+            </div>
+            <div class="pola" style="--r:2deg">
+              <div class="pola-img" style="--bg:linear-gradient(135deg,#1e2e3e,#0f1e2e)"></div>
+              <p class="pola-cap">Infographie</p>
+            </div>
+            <div class="pola" style="--r:-2.5deg">
+              <div class="pola-img" style="--bg:linear-gradient(135deg,#1a2a3a,#0d1a2a)"></div>
+              <p class="pola-cap">Newsletter B2B</p>
+            </div>
+            <div class="pola" style="--r:1deg">
+              <div class="pola-img" style="--bg:linear-gradient(135deg,#1a2a3a,#0d1a2a)"></div>
+              <p class="pola-cap">Rapport annuel</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PANEL: ROUEN POINT ── -->
+      <div class="panel" id="panel-rouen" role="tabpanel" aria-labelledby="tab-rouen-btn">
+        <div class="panel-layout">
+          <div class="panel-info">
+            <h3>Rouen Point</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Stratégie de communication locale pour Rouen Point — valoriser la ville de Rouen, ses événements, sa culture et son dynamisme économique.</p>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem. Production de visuels percutants et gestion éditoriale pour engager une communauté locale au quotidien.</p>
+            <div class="panel-tags">
+              <span class="ptag">Comm. locale</span>
+              <span class="ptag">Instagram</span>
+              <span class="ptag">Affiches</span>
+              <span class="ptag">Événementiel</span>
+            </div>
+          </div>
+          <div class="photo-grid">
+            <div class="pola" style="--r:2deg">
+              <div class="pola-img" style="--bg:linear-gradient(135deg,#2a1a1a,#1a0d0d)"></div>
+              <p class="pola-cap">Campagne ville</p>
+            </div>
+            <div class="pola" style="--r:-1.5deg">
+              <div class="pola-img" style="--bg:linear-gradient(135deg,#2e1e1e,#1e0f0f)"></div>
+              <p class="pola-cap">Post local</p>
+            </div>
+            <div class="pola" style="--r:1.5deg">
+              <div class="pola-img" style="--bg:linear-gradient(135deg,#2a1a1a,#1a0d0d)"></div>
+              <p class="pola-cap">Affiche événement</p>
+            </div>
+            <div class="pola" style="--r:-3deg">
+              <div class="pola-img" style="--bg:linear-gradient(135deg,#2a1a1a,#1a0d0d)"></div>
+              <p class="pola-cap">Story Rouen</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PANEL: FICTIF ── -->
+      <div class="panel" id="panel-fictif" role="tabpanel" aria-labelledby="tab-fictif-btn">
+        <div class="panel-layout">
+          <div class="panel-info">
+            <h3>Projet Fictif</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Exercice créatif complet — concevoir from scratch l'identité visuelle et la stratégie de communication d'une marque fictive.</p>
+            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit. De la définition du concept créatif à la production des déclinaisons visuelles, un projet qui démontre la maîtrise du processus de communication global.</p>
+            <div class="panel-tags">
+              <span class="ptag">Concept créatif</span>
+              <span class="ptag">Identité visuelle</span>
+              <span class="ptag">Stratégie 360°</span>
+              <span class="ptag">Mock-ups</span>
+            </div>
+          </div>
+          <div class="photo-grid">
+            <div class="pola" style="--r:-2deg">
+              <div class="pola-img" style="--bg:linear-gradient(135deg,#2a2a1a,#1a1a0d)"></div>
+              <p class="pola-cap">Brand concept</p>
+            </div>
+            <div class="pola" style="--r:1.5deg">
+              <div class="pola-img" style="--bg:linear-gradient(135deg,#2a2a1a,#1a1a0d)"></div>
+              <p class="pola-cap">Identité visuelle</p>
+            </div>
+            <div class="pola" style="--r:-1deg">
+              <div class="pola-img" style="--bg:linear-gradient(135deg,#2a2a1a,#1a1a0d)"></div>
+              <p class="pola-cap">Mock-up print</p>
+            </div>
+            <div class="pola" style="--r:2.5deg">
+              <div class="pola-img" style="--bg:linear-gradient(135deg,#2a2a1a,#1a1a0d)"></div>
+              <p class="pola-cap">Social media</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /container -->
+  </section>
+
+  <!-- ════════════════════════════════════════
+       CONTACT
+  ════════════════════════════════════════ -->
+  <section id="contact" class="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Info column -->
+        <div class="reveal">
+          <span class="stamp">Contact</span>
+          <h2 class="contact-title" id="contact-title">Travaillons <em>ensemble</em></h2>
+          <p class="contact-info-text">
+            Vous avez un projet, une idée, une mission à confier ? N'hésitez pas à me contacter — je serai ravie d'échanger avec vous.
+          </p>
+
+          <ul class="contact-list" aria-label="Informations de contact">
+            <li class="contact-item">
+              <span class="contact-icon" aria-hidden="true">
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+                  <path d="M7.5,1.5 C5,1.5 3,3.5 3,6 C3,9.5 7.5,13.5 7.5,13.5 C7.5,13.5 12,9.5 12,6 C12,3.5 10,1.5 7.5,1.5Z" stroke="white" stroke-width="1.3" fill="none"/>
+                  <circle cx="7.5" cy="6" r="1.8" fill="white"/>
+                </svg>
+              </span>
+              Rouen, Normandie
+            </li>
+            <li class="contact-item">
+              <span class="contact-icon" aria-hidden="true">
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+                  <rect x="1.5" y="3.5" width="12" height="8.5" rx="1" stroke="white" stroke-width="1.3" fill="none"/>
+                  <path d="M1.5,5 L7.5,9 L13.5,5" stroke="white" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+                </svg>
+              </span>
+              contact@julietteferay.fr
+            </li>
+            <li class="contact-item">
+              <span class="contact-icon" aria-hidden="true">
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+                  <path d="M4,2.5 C4,2.5 5,1.5 6,2.5 L7.5,5.5 C8,6.5 7,7 7,8 C7,9 9,11 10,11 C11,11 11,10 12,10.5 L14.5,11.8 C15.5,12.5 14.5,13.5 14.5,13.5 C11.5,16.5 2,7 4,2.5Z" stroke="white" stroke-width="1.2" fill="none"/>
+                </svg>
+              </span>
+              Sur demande
+            </li>
+          </ul>
+
+          <!-- Decorative phone SVG -->
+          <div class="contact-deco" aria-hidden="true">
+            <svg width="90" height="130" viewBox="0 0 90 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Spiral cord -->
+              <path d="M45,0 Q45,5 40,8 Q50,11 40,14 Q50,17 40,20 Q50,23 40,26 Q50,29 45,32"
+                    stroke="#A6171C" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <!-- Handset body -->
+              <path d="M24,55 C22,44 26,36 38,43 L54,52 C66,61 70,72 58,79 L44,70 C32,61 26,70 24,55Z"
+                    fill="#A6171C" opacity="0.82"/>
+              <!-- Speaker / mic circles -->
+              <circle cx="34" cy="47" r="4" fill="rgba(253,250,243,0.2)"/>
+              <circle cx="55" cy="71" r="4" fill="rgba(253,250,243,0.2)"/>
+              <!-- High five hands deco below -->
+              <text x="0" y="120" font-family="'Caveat', cursive" font-size="13" fill="#A6171C" opacity="0.7">Contactez-moi !</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Form column -->
+        <div class="reveal reveal-delay-1">
+          <div class="form-card">
+            <form class="contact-form" novalidate aria-label="Formulaire de contact">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="f-name">Nom</label>
+                  <input type="text" id="f-name" name="name" placeholder="Votre nom" required autocomplete="name">
+                </div>
+                <div class="form-group">
+                  <label for="f-email">Email</label>
+                  <input type="email" id="f-email" name="email" placeholder="votre@email.fr" required autocomplete="email">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="f-subject">Sujet</label>
+                <input type="text" id="f-subject" name="subject" placeholder="Objet de votre message">
+              </div>
+              <div class="form-group">
+                <label for="f-message">Message</label>
+                <textarea id="f-message" name="message" placeholder="Décrivez votre projet, votre idée..." required></textarea>
+              </div>
+              <div class="form-submit">
+                <button type="submit" class="btn btn-dark" id="submit-btn">
+                  Envoyer le message
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M2,8 L14,8 M9,3 L14,8 L9,13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-logo">JF★</span>
+      <p class="footer-copy">© 2024 Juliette Féray — Community Manager &amp; Communication</p>
+      <a href="#hero" class="footer-back" aria-label="Retour en haut de page">↑ Retour en haut</a>
+    </div>
+  </footer>
+
+</div><!-- /site-wrap -->
+
+
+<!-- ════════════════════════════════════════
+     THREE.JS + APP LOGIC
+════════════════════════════════════════ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* ─── THREE.JS SCENE ─────────────────────────── */
+  const canvas = document.getElementById('three-canvas');
+  if (!canvas || !window.THREE) return;
+
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setClearColor(0x000000, 0);
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
+  camera.position.z = 10;
+
+  /* — Floating paper scraps — */
+  const papers = [];
+  const PAPER_COLORS = [0xA6171C, 0xC8A84B, 0x1C1A17, 0xF5F0E8, 0xA6171C];
+  const PAPER_OPS    = [0.10,     0.07,     0.05,     0.08,     0.06   ];
+
+  for (let i = 0; i < 20; i++) {
+    const w = Math.random() * 1.4 + 0.25;
+    const h = Math.random() * 0.9 + 0.15;
+    const geo = new THREE.PlaneGeometry(w, h);
+    const ci  = Math.floor(Math.random() * PAPER_COLORS.length);
+    const mat = new THREE.MeshBasicMaterial({
+      color: PAPER_COLORS[ci],
+      transparent: true,
+      opacity: PAPER_OPS[ci],
+      side: THREE.DoubleSide
+    });
+    const mesh = new THREE.Mesh(geo, mat);
+    mesh.position.set(
+      (Math.random() - 0.5) * 32,
+      (Math.random() - 0.5) * 22,
+      (Math.random() - 0.5) * 5 - 2
+    );
+    mesh.rotation.z = Math.random() * Math.PI * 2;
+    mesh.rotation.x = (Math.random() - 0.5) * 0.4;
+    scene.add(mesh);
+    papers.push({
+      mesh,
+      vFloat: Math.random() * 0.003 + 0.0008,
+      vRot:   (Math.random() - 0.5) * 0.003,
+      phase:  Math.random() * Math.PI * 2
+    });
+  }
+
+  /* — Red particle cloud — */
+  const makeParticles = (count, color, size, opacity, spread) => {
+    const pos = new Float32Array(count * 3);
+    for (let i = 0; i < count; i++) {
+      pos[i * 3]     = (Math.random() - 0.5) * spread[0];
+      pos[i * 3 + 1] = (Math.random() - 0.5) * spread[1];
+      pos[i * 3 + 2] = (Math.random() - 0.5) * spread[2] - 2;
+    }
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    const mat = new THREE.PointsMaterial({ color, size, transparent: true, opacity, sizeAttenuation: true });
+    const pts = new THREE.Points(geo, mat);
+    scene.add(pts);
+    return pts;
+  };
+
+  const redPts  = makeParticles(280, 0xA6171C, 0.045, 0.32, [36, 26, 9]);
+  const goldPts = makeParticles(160, 0xC8A84B, 0.055, 0.22, [30, 22, 7]);
+
+  /* — Mouse parallax — */
+  let mx = 0, my = 0, tmx = 0, tmy = 0;
+  document.addEventListener('mousemove', e => {
+    tmx = (e.clientX / window.innerWidth  - 0.5) * 2;
+    tmy = -(e.clientY / window.innerHeight - 0.5) * 2;
+  });
+
+  /* — Animation loop — */
+  let t = 0;
+  const tick = () => {
+    requestAnimationFrame(tick);
+    t += 0.007;
+
+    // Smooth mouse
+    mx += (tmx - mx) * 0.045;
+    my += (tmy - my) * 0.045;
+
+    // Camera drift
+    camera.position.x += (mx * 0.7 - camera.position.x) * 0.035;
+    camera.position.y += (my * 0.45 - camera.position.y) * 0.035;
+    camera.lookAt(scene.position);
+
+    // Paper float
+    papers.forEach(p => {
+      p.mesh.position.y += Math.sin(t * 0.75 + p.phase) * p.vFloat;
+      p.mesh.rotation.z += p.vRot;
+    });
+
+    // Particle drift
+    redPts.rotation.y  =  t * 0.035;
+    redPts.rotation.x  =  t * 0.012;
+    goldPts.rotation.y = -t * 0.025;
+    goldPts.rotation.z =  t * 0.008;
+
+    renderer.render(scene, camera);
+  };
+  tick();
+
+  /* — Resize — */
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+
+  /* ─── NAV SCROLL CLASS ────────────────────────── */
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  /* ─── PROJECT TABS ────────────────────────────── */
+  const tabBtns   = document.querySelectorAll('.tab-btn');
+  const tabPanels = document.querySelectorAll('.panel');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.tab;
+      tabBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+      tabPanels.forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      document.getElementById('panel-' + target).classList.add('active');
+    });
+  });
+
+  /* ─── SCROLL REVEAL ───────────────────────────── */
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObs = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+  );
+  revealEls.forEach(el => revealObs.observe(el));
+
+  /* ─── NAV ACTIVE LINK ─────────────────────────── */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  const linkObs  = new IntersectionObserver(
+    entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          const link = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+          if (link) link.classList.add('active');
+        }
+      });
+    },
+    { threshold: 0.4 }
+  );
+  sections.forEach(s => linkObs.observe(s));
+
+  /* ─── CONTACT FORM ────────────────────────────── */
+  const form      = document.querySelector('.contact-form');
+  const submitBtn = document.getElementById('submit-btn');
+
+  if (form && submitBtn) {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const orig = submitBtn.innerHTML;
+      submitBtn.innerHTML = 'Message envoyé ✓';
+      submitBtn.style.background = '#2d7d46';
+      submitBtn.disabled = true;
+      setTimeout(() => {
+        submitBtn.innerHTML = orig;
+        submitBtn.style.background = '';
+        submitBtn.disabled = false;
+        form.reset();
+      }, 3500);
+    });
+  }
+
+})();
+</script>
+
+</body>
+</html>
