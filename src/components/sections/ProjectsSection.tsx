@@ -26,26 +26,13 @@ interface PolaroidProps {
 function Polaroid({ photo }: PolaroidProps): React.JSX.Element {
   return (
     <div
-      className="group cursor-pointer bg-paper transition-[transform,box-shadow] duration-300"
-      style={{
-        padding: '9px 9px 32px',
-        transform: `rotate(${photo.rotation})`,
-        boxShadow: '3px 5px 14px rgba(0,0,0,0.35)',
-      }}
-      onMouseEnter={(e): void => {
-        const el = e.currentTarget as HTMLDivElement
-        el.style.transform = 'rotate(0deg) scale(1.05)'
-        el.style.boxShadow = '8px 10px 28px rgba(0,0,0,0.45)'
-        el.style.zIndex = '10'
-        el.style.position = 'relative'
-      }}
-      onMouseLeave={(e): void => {
-        const el = e.currentTarget as HTMLDivElement
-        el.style.transform = `rotate(${photo.rotation})`
-        el.style.boxShadow = '3px 5px 14px rgba(0,0,0,0.35)'
-        el.style.zIndex = ''
-        el.style.position = ''
-      }}
+      className="polaroid-card bg-paper"
+      style={
+        {
+          padding: '9px 9px 32px',
+          '--polaroid-rotation': photo.rotation,
+        } as React.CSSProperties
+      }
     >
       <div
         className="flex w-full items-center justify-center overflow-hidden"
