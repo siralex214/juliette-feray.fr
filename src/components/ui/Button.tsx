@@ -54,7 +54,11 @@ export default function Button(props: Props): React.JSX.Element {
   const classes = cn(baseStyles, variantStyles[variant], className)
 
   if ('asChild' in props && props.asChild) {
-    const { asChild: _asChild, href, ...anchorRest } = rest as ComponentPropsWithoutRef<'a'> & {
+    const {
+      asChild: _asChild,
+      href,
+      ...anchorRest
+    } = rest as ComponentPropsWithoutRef<'a'> & {
       asChild: true
       href: string
     }

@@ -30,7 +30,12 @@ export default function ThreeBackground(): React.JSX.Element {
 
       // ── Scene & Camera ───────────────────────────────────────────────────────
       const scene = new THREE.Scene()
-      const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 200)
+      const camera = new THREE.PerspectiveCamera(
+        60,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        200
+      )
       camera.position.z = 30
 
       // ── Paper scraps ─────────────────────────────────────────────────────────
@@ -52,7 +57,7 @@ export default function ThreeBackground(): React.JSX.Element {
         mesh.position.set(
           (Math.random() - 0.5) * 55,
           (Math.random() - 0.5) * 35,
-          (Math.random() - 0.5) * 20 - 5,
+          (Math.random() - 0.5) * 20 - 5
         )
         mesh.rotation.z = (Math.random() - 0.5) * Math.PI * 0.6
         mesh.rotation.x = (Math.random() - 0.5) * 0.5
@@ -73,7 +78,7 @@ export default function ThreeBackground(): React.JSX.Element {
         count: number,
         color: number,
         size: number,
-        spread: [number, number, number],
+        spread: [number, number, number]
       ): THREE.Points => {
         const positions = new Float32Array(count * 3)
         for (let i = 0; i < count; i++) {

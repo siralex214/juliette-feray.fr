@@ -26,8 +26,23 @@ function LocationIconSvg(): React.JSX.Element {
 function MailIconSvg(): React.JSX.Element {
   return (
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-      <rect x="2" y="4" width="16" height="12" rx="2" stroke="currentColor" strokeWidth="1.5" fill="none" />
-      <path d="M2 7L10 12L18 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+      <rect
+        x="2"
+        y="4"
+        width="16"
+        height="12"
+        rx="2"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        fill="none"
+      />
+      <path
+        d="M2 7L10 12L18 7"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        fill="none"
+      />
     </svg>
   )
 }
@@ -88,7 +103,7 @@ const CONTACT_INFO = [
   {
     icon: MailIconSvg,
     label: 'Email',
-    value: 'juliette.feray@email.com',
+    value: 'xxxxx.xxxxx@email.com',
   },
   {
     icon: PhoneIconSvg,
@@ -112,11 +127,7 @@ export default function ContactSection(): React.JSX.Element {
   }
 
   return (
-    <section
-      id="contact"
-      className="relative py-24 lg:py-36"
-      aria-labelledby="contact-title"
-    >
+    <section id="contact" className="relative py-24 lg:py-36" aria-labelledby="contact-title">
       {/* Top dashed separator */}
       <div
         className="absolute inset-x-0 top-0 h-[3px] opacity-30"
@@ -128,7 +139,7 @@ export default function ContactSection(): React.JSX.Element {
       />
 
       {/* Subtle background tint */}
-      <div className="absolute inset-0 bg-cream/40" aria-hidden="true" />
+      <div className="bg-cream/40 absolute inset-0" aria-hidden="true" />
 
       <div className="relative mx-auto max-w-[1160px] px-5 lg:px-16">
         {/* Header */}
@@ -136,13 +147,14 @@ export default function ContactSection(): React.JSX.Element {
           <Stamp>Contact</Stamp>
           <h2
             id="contact-title"
-            className="font-display font-black text-ink"
+            className="font-display text-ink font-black"
             style={{ fontSize: 'clamp(2.4rem, 4vw, 3.6rem)' }}
           >
-            Travaillons <em className="italic text-brand-red">ensemble</em>
+            Travaillons <em className="text-brand-red italic">ensemble</em>
           </h2>
-          <p className="font-hand mt-3 max-w-[480px] text-[1.1rem] text-ink-light">
-            Un projet, une collaboration, une question ? Je suis disponible et ravie d&apos;échanger.
+          <p className="font-hand text-ink-light mt-3 max-w-[480px] text-[1.1rem]">
+            Un projet, une collaboration, une question ? Je suis disponible et ravie
+            d&apos;échanger.
           </p>
         </div>
 
@@ -154,14 +166,16 @@ export default function ContactSection(): React.JSX.Element {
               {CONTACT_INFO.map(({ icon: Icon, label, value }) => (
                 <li key={label} className="flex items-center gap-4">
                   <div
-                    className="flex size-10 shrink-0 items-center justify-center bg-brand-red text-paper"
+                    className="bg-brand-red text-paper flex size-10 shrink-0 items-center justify-center"
                     aria-hidden="true"
                   >
                     <Icon />
                   </div>
                   <div>
-                    <p className="text-[0.7rem] tracking-[0.12em] uppercase text-ink-light">{label}</p>
-                    <p className="text-[0.95rem] font-medium text-ink">{value}</p>
+                    <p className="text-ink-light text-[0.7rem] tracking-[0.12em] uppercase">
+                      {label}
+                    </p>
+                    <p className="text-ink text-[0.95rem] font-medium">{value}</p>
                   </div>
                 </li>
               ))}
@@ -169,7 +183,7 @@ export default function ContactSection(): React.JSX.Element {
 
             {/* Deco telephone */}
             <div
-              className="hidden lg:block opacity-60"
+              className="hidden opacity-60 lg:block"
               style={{ transform: 'rotate(-8deg)', width: '80px' }}
               aria-hidden="true"
             >
@@ -178,10 +192,10 @@ export default function ContactSection(): React.JSX.Element {
 
             {/* Availability note */}
             <div
-              className="mt-8 inline-block border-l-[3px] border-brand-red pl-4"
+              className="border-brand-red mt-8 inline-block border-l-[3px] pl-4"
               style={{ transform: 'rotate(-0.5deg)' }}
             >
-              <p className="font-hand text-[1rem] text-ink-light">
+              <p className="font-hand text-ink-light text-[1rem]">
                 Disponible pour des missions
                 <br />
                 freelance dès maintenant ✓
@@ -191,7 +205,7 @@ export default function ContactSection(): React.JSX.Element {
 
           {/* ── Form card ── */}
           <div
-            className="relative bg-paper px-8 py-10 tape"
+            className="bg-paper tape relative px-8 py-10"
             style={{
               boxShadow: '6px 8px 0 #A6171C, 8px 10px 24px rgba(0,0,0,0.10)',
               transform: 'rotate(0.3deg)',
@@ -200,7 +214,7 @@ export default function ContactSection(): React.JSX.Element {
             {status === 'success' ? (
               <div className="flex flex-col items-center justify-center py-10 text-center">
                 <div
-                  className="mb-4 flex size-16 items-center justify-center bg-brand-red text-paper"
+                  className="bg-brand-red text-paper mb-4 flex size-16 items-center justify-center"
                   aria-hidden="true"
                 >
                   <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
@@ -213,20 +227,24 @@ export default function ContactSection(): React.JSX.Element {
                     />
                   </svg>
                 </div>
-                <h3 className="font-display mb-2 text-[1.5rem] font-bold text-ink">
+                <h3 className="font-display text-ink mb-2 text-[1.5rem] font-bold">
                   Message envoyé !
                 </h3>
-                <p className="font-hand text-[1.05rem] text-ink-light">
+                <p className="font-hand text-ink-light text-[1.05rem]">
                   Merci, je reviendrai vers vous très bientôt.
                 </p>
               </div>
             ) : (
-              <form onSubmit={(e) => void handleSubmit(e)} noValidate aria-label="Formulaire de contact">
+              <form
+                onSubmit={(e) => void handleSubmit(e)}
+                noValidate
+                aria-label="Formulaire de contact"
+              >
                 <div className="mb-6 grid gap-5 sm:grid-cols-2">
                   <div>
                     <label
                       htmlFor="contact-name"
-                      className="mb-1.5 block text-[0.75rem] tracking-[0.1em] uppercase text-ink-light"
+                      className="text-ink-light mb-1.5 block text-[0.75rem] tracking-[0.1em] uppercase"
                     >
                       Nom *
                     </label>
@@ -238,9 +256,9 @@ export default function ContactSection(): React.JSX.Element {
                       autoComplete="name"
                       disabled={status === 'submitting'}
                       className={cn(
-                        'w-full border border-ink/10 bg-cream px-4 py-3',
-                        'text-[0.9rem] text-ink placeholder:text-ink-light/50',
-                        'outline-none transition-colors duration-200',
+                        'border-ink/10 bg-cream w-full border px-4 py-3',
+                        'text-ink placeholder:text-ink-light/50 text-[0.9rem]',
+                        'transition-colors duration-200 outline-none',
                         'focus:border-brand-red',
                         'disabled:opacity-50'
                       )}
@@ -250,7 +268,7 @@ export default function ContactSection(): React.JSX.Element {
                   <div>
                     <label
                       htmlFor="contact-email"
-                      className="mb-1.5 block text-[0.75rem] tracking-[0.1em] uppercase text-ink-light"
+                      className="text-ink-light mb-1.5 block text-[0.75rem] tracking-[0.1em] uppercase"
                     >
                       Email *
                     </label>
@@ -262,9 +280,9 @@ export default function ContactSection(): React.JSX.Element {
                       autoComplete="email"
                       disabled={status === 'submitting'}
                       className={cn(
-                        'w-full border border-ink/10 bg-cream px-4 py-3',
-                        'text-[0.9rem] text-ink placeholder:text-ink-light/50',
-                        'outline-none transition-colors duration-200',
+                        'border-ink/10 bg-cream w-full border px-4 py-3',
+                        'text-ink placeholder:text-ink-light/50 text-[0.9rem]',
+                        'transition-colors duration-200 outline-none',
                         'focus:border-brand-red',
                         'disabled:opacity-50'
                       )}
@@ -276,7 +294,7 @@ export default function ContactSection(): React.JSX.Element {
                 <div className="mb-6">
                   <label
                     htmlFor="contact-subject"
-                    className="mb-1.5 block text-[0.75rem] tracking-[0.1em] uppercase text-ink-light"
+                    className="text-ink-light mb-1.5 block text-[0.75rem] tracking-[0.1em] uppercase"
                   >
                     Sujet
                   </label>
@@ -286,9 +304,9 @@ export default function ContactSection(): React.JSX.Element {
                     name="subject"
                     disabled={status === 'submitting'}
                     className={cn(
-                      'w-full border border-ink/10 bg-cream px-4 py-3',
-                      'text-[0.9rem] text-ink placeholder:text-ink-light/50',
-                      'outline-none transition-colors duration-200',
+                      'border-ink/10 bg-cream w-full border px-4 py-3',
+                      'text-ink placeholder:text-ink-light/50 text-[0.9rem]',
+                      'transition-colors duration-200 outline-none',
                       'focus:border-brand-red',
                       'disabled:opacity-50'
                     )}
@@ -299,7 +317,7 @@ export default function ContactSection(): React.JSX.Element {
                 <div className="mb-8">
                   <label
                     htmlFor="contact-message"
-                    className="mb-1.5 block text-[0.75rem] tracking-[0.1em] uppercase text-ink-light"
+                    className="text-ink-light mb-1.5 block text-[0.75rem] tracking-[0.1em] uppercase"
                   >
                     Message *
                   </label>
@@ -310,9 +328,9 @@ export default function ContactSection(): React.JSX.Element {
                     rows={5}
                     disabled={status === 'submitting'}
                     className={cn(
-                      'w-full resize-none border border-ink/10 bg-cream px-4 py-3',
-                      'text-[0.9rem] text-ink placeholder:text-ink-light/50',
-                      'outline-none transition-colors duration-200',
+                      'border-ink/10 bg-cream w-full resize-none border px-4 py-3',
+                      'text-ink placeholder:text-ink-light/50 text-[0.9rem]',
+                      'transition-colors duration-200 outline-none',
                       'focus:border-brand-red',
                       'disabled:opacity-50'
                     )}
@@ -322,13 +340,14 @@ export default function ContactSection(): React.JSX.Element {
 
                 <button
                   type="submit"
-                  disabled={status === 'submitting'}
+                  // disabled={status === 'submitting'}
+                  disabled={true}
                   className={cn(
-                    'inline-flex items-center gap-3 bg-ink px-8 py-3.5',
-                    'text-sm font-medium tracking-wide text-paper uppercase',
+                    'bg-ink inline-flex cursor-pointer items-center gap-3 px-8 py-3.5',
+                    'text-paper text-sm font-medium tracking-wide uppercase',
                     'shadow-[4px_4px_0_#A6171C] transition-all duration-200',
                     'hover:bg-brand-red hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_#7D1115]',
-                    'disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-x-0 disabled:hover:translate-y-0 disabled:hover:shadow-[4px_4px_0_#A6171C]'
+                    'disabled:hover:bg-ink disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-x-0 disabled:hover:translate-y-0 disabled:hover:shadow-[4px_4px_0_#A6171C]'
                   )}
                 >
                   {status === 'submitting' ? (

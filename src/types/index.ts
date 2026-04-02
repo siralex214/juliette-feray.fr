@@ -22,6 +22,10 @@ export interface PhotoItem {
   bgGradient: string
   /** CSS rotation applied to the polaroid frame (e.g. '-2.5deg') */
   rotation: string
+  link?: string
+  /** 'instagram' opens the link in a new tab; 'photo' opens a fullscreen lightbox */
+  linkType?: 'instagram' | 'photo'
+  externalLink?: string
 }
 
 /** A project category displayed as a tab */

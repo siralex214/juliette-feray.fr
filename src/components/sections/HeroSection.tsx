@@ -1,5 +1,6 @@
 // Server component — no 'use client' needed
 
+import Image from 'next/image'
 import type React from 'react'
 
 // ─── SVG decorations ──────────────────────────────────────────────────────────
@@ -7,7 +8,10 @@ import type React from 'react'
 function StarsSvg(): React.JSX.Element {
   return (
     <svg viewBox="0 0 120 85" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <polygon points="14,3 16.5,10.5 24,10.5 18,15 20.5,22 14,17.5 7.5,22 10,15 4,10.5 11.5,10.5" fill="#C8A84B" />
+      <polygon
+        points="14,3 16.5,10.5 24,10.5 18,15 20.5,22 14,17.5 7.5,22 10,15 4,10.5 11.5,10.5"
+        fill="#C8A84B"
+      />
       <polygon points="68,0 71,9 80,9 73,14 76,23 68,18 60,23 63,14 56,9 65,9" fill="#C8A84B" />
       <polygon
         points="100,18 102.5,25 110,25 104,29.5 106.5,37 100,32.5 93.5,37 96,29.5 90,25 97.5,25"
@@ -54,8 +58,24 @@ function BinderClipSvg(): React.JSX.Element {
         fill="none"
       />
       <rect x="6" y="36" width="32" height="8" fill="#8A1015" />
-      <rect x="13" y="56" width="5" height="9" rx="1.5" fill="#8A1015" style={{ transform: 'rotate(-18deg)', transformOrigin: '15.5px 60.5px' }} />
-      <rect x="26" y="56" width="5" height="9" rx="1.5" fill="#8A1015" style={{ transform: 'rotate(18deg)', transformOrigin: '28.5px 60.5px' }} />
+      <rect
+        x="13"
+        y="56"
+        width="5"
+        height="9"
+        rx="1.5"
+        fill="#8A1015"
+        style={{ transform: 'rotate(-18deg)', transformOrigin: '15.5px 60.5px' }}
+      />
+      <rect
+        x="26"
+        y="56"
+        width="5"
+        height="9"
+        rx="1.5"
+        fill="#8A1015"
+        style={{ transform: 'rotate(18deg)', transformOrigin: '28.5px 60.5px' }}
+      />
     </svg>
   )
 }
@@ -77,7 +97,14 @@ function FilmStripSvg(): React.JSX.Element {
 
 function ProfileSvg(): React.JSX.Element {
   return (
-    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <svg
+      width="80"
+      height="80"
+      viewBox="0 0 80 80"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
       <circle cx="40" cy="27" r="17" fill="#A6171C" opacity="0.82" />
       <ellipse cx="40" cy="66" rx="26" ry="19" fill="#A6171C" opacity="0.82" />
     </svg>
@@ -95,18 +122,17 @@ export default function HeroSection(): React.JSX.Element {
     >
       <div className="mx-auto w-full max-w-[1160px] px-5 lg:px-16">
         <div className="grid items-center gap-16 py-16 md:grid-cols-2 lg:gap-20">
-
           {/* ── Left: Text ── */}
           <div>
             <span
-              className="font-hand mb-4 block text-[1.25rem] text-brand-red"
+              className="font-hand text-brand-red mb-4 block text-[1.25rem]"
               style={{ transform: 'rotate(-1.2deg)' }}
             >
               Community Manager &amp; Communication
             </span>
 
             <h1
-              className="font-display mb-6 font-black text-ink"
+              className="font-display text-ink mb-6 font-black"
               style={{
                 fontSize: 'clamp(4rem, 7.5vw, 7rem)',
                 lineHeight: '0.93',
@@ -118,20 +144,20 @@ export default function HeroSection(): React.JSX.Element {
               <em className="text-brand-red not-italic">Féray.</em>
             </h1>
 
-            <p className="mb-8 flex items-center gap-3 text-sm text-ink-light before:h-px before:w-8 before:bg-ink-light before:shrink-0">
+            <p className="text-ink-light before:bg-ink-light mb-8 flex items-center gap-3 text-sm before:h-px before:w-8 before:shrink-0">
               5 ans d&apos;expérience · Rouen, Normandie
             </p>
 
             <div className="flex flex-wrap gap-3">
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2 bg-ink px-8 py-3.5 text-sm font-medium tracking-wide text-paper shadow-[4px_4px_0_#A6171C] transition-all duration-200 hover:bg-brand-red hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_#7D1115]"
+                className="bg-ink text-paper hover:bg-brand-red inline-flex items-center gap-2 px-8 py-3.5 text-sm font-medium tracking-wide shadow-[4px_4px_0_#A6171C] transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_#7D1115]"
               >
                 Voir mes réalisations
               </a>
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 border border-ink/20 bg-transparent px-8 py-3.5 text-sm font-medium tracking-wide text-ink-mid transition-colors duration-200 hover:border-brand-red hover:text-brand-red"
+                className="border-ink/20 text-ink-mid hover:border-brand-red hover:text-brand-red inline-flex items-center gap-2 border bg-transparent px-8 py-3.5 text-sm font-medium tracking-wide transition-colors duration-200"
               >
                 Me contacter
               </a>
@@ -146,23 +172,29 @@ export default function HeroSection(): React.JSX.Element {
           >
             {/* Main polaroid card */}
             <div
-              className="relative z-10 max-w-[280px] bg-paper px-8 pb-10 pt-8 tape"
+              className="bg-paper tape relative z-10 max-w-70 px-8 pt-8 pb-10"
               style={{
                 transform: 'rotate(2.5deg)',
                 boxShadow: '7px 9px 0 #A6171C, 9px 11px 28px rgba(0,0,0,0.14)',
               }}
             >
-              <div className="mx-auto mb-6 flex size-[120px] items-center justify-center rounded-full bg-cream">
-                <ProfileSvg />
+              <div className="bg-cream mx-auto mb-6 size-30 overflow-hidden rounded-full">
+                <Image
+                  src="/juliette_feray.jpg"
+                  alt="Juliette Féray"
+                  className="h-full w-full object-cover"
+                  width={120}
+                  height={120}
+                />
               </div>
-              <p className="font-hand text-center text-[1.65rem] font-bold leading-tight text-ink">
+              <p className="font-hand text-ink text-center text-[1.65rem] leading-tight font-bold">
                 Juliette Féray
               </p>
-              <p className="mt-1 text-center text-[0.72rem] tracking-[0.14em] uppercase text-ink-light">
+              <p className="text-ink-light mt-1 text-center text-[0.72rem] tracking-[0.14em] uppercase">
                 Community Manager
               </p>
               <div className="mt-5 flex justify-center">
-                <span className="font-hand bg-brand-red px-3 py-0.5 text-sm text-paper">
+                <span className="font-hand bg-brand-red text-paper px-3 py-0.5 text-sm">
                   Disponible ✓
                 </span>
               </div>
@@ -170,7 +202,7 @@ export default function HeroSection(): React.JSX.Element {
 
             {/* Floating stars */}
             <div
-              className="deco absolute -top-4 -right-6 w-[110px] animate-floatDeco"
+              className="deco animate-floatDeco absolute -top-4 -right-6 w-[110px]"
               style={{ '--r': '6deg' } as React.CSSProperties}
             >
               <StarsSvg />
@@ -178,7 +210,7 @@ export default function HeroSection(): React.JSX.Element {
 
             {/* Wavy red line */}
             <div
-              className="deco absolute bottom-5 -left-11 w-[150px] animate-floatDeco"
+              className="deco animate-floatDeco absolute bottom-5 -left-11 w-[150px]"
               style={
                 {
                   animationDuration: '6s',
@@ -192,7 +224,7 @@ export default function HeroSection(): React.JSX.Element {
 
             {/* Binder clip */}
             <div
-              className="deco absolute top-[36%] -right-11 w-[44px] animate-floatDeco"
+              className="deco animate-floatDeco absolute top-[36%] -right-11 w-[44px]"
               style={
                 {
                   animationDuration: '3.8s',
@@ -206,7 +238,7 @@ export default function HeroSection(): React.JSX.Element {
 
             {/* Film strip */}
             <div
-              className="deco absolute -bottom-5 right-5 w-[60px] animate-floatDeco opacity-70"
+              className="deco animate-floatDeco absolute right-5 -bottom-5 w-[60px] opacity-70"
               style={
                 {
                   animationDuration: '7s',
@@ -223,7 +255,7 @@ export default function HeroSection(): React.JSX.Element {
 
       {/* Scroll indicator */}
       <div
-        className="font-hand absolute bottom-8 left-1/2 -translate-x-1/2 animate-scrollBounce flex flex-col items-center gap-1.5 text-[0.85rem] text-ink-light"
+        className="font-hand animate-scrollBounce text-ink-light absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1.5 text-[0.85rem]"
         aria-hidden="true"
       >
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">

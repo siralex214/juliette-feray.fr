@@ -15,7 +15,12 @@ interface StampProps extends ComponentPropsWithoutRef<'span'> {
  * <Stamp>À propos</Stamp>
  * <Stamp light>Réalisations</Stamp>
  */
-export default function Stamp({ light = false, className, children, ...props }: StampProps): React.JSX.Element {
+export default function Stamp({
+  light = false,
+  className,
+  children,
+  ...props
+}: StampProps): React.JSX.Element {
   return (
     <span
       className={cn(
@@ -24,8 +29,8 @@ export default function Stamp({ light = false, className, children, ...props }: 
         'text-[0.62rem] font-medium tracking-[0.22em] uppercase',
         'mb-5',
         light
-          ? 'border border-paper/30 text-paper/60'
-          : 'border border-brand-red text-brand-red stamp-border',
+          ? 'border-paper/30 text-paper/60 border'
+          : 'border-brand-red text-brand-red stamp-border border',
         className
       )}
       {...props}
