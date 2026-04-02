@@ -78,7 +78,7 @@ export default function Navigation(): React.JSX.Element {
       </nav>
 
       <div className="bg-brand-red/90 fixed inset-x-0 top-17 z-40 py-1.5 text-center text-[0.7rem] font-medium tracking-[0.12em] text-white/90 uppercase backdrop-blur-sm">
-        Portfolio fictif — les projets et visuels présentés sont à titre d'exemple uniquement
+        {"Portfolio fictif — les projets et visuels présentés sont à titre d'exemple uniquement"}
       </div>
     </>
   )

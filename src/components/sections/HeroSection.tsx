@@ -95,21 +95,21 @@ function FilmStripSvg(): React.JSX.Element {
   )
 }
 
-function ProfileSvg(): React.JSX.Element {
-  return (
-    <svg
-      width="80"
-      height="80"
-      viewBox="0 0 80 80"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <circle cx="40" cy="27" r="17" fill="#A6171C" opacity="0.82" />
-      <ellipse cx="40" cy="66" rx="26" ry="19" fill="#A6171C" opacity="0.82" />
-    </svg>
-  )
-}
+// function ProfileSvg(): React.JSX.Element {
+//   return (
+//     <svg
+//       width="80"
+//       height="80"
+//       viewBox="0 0 80 80"
+//       fill="none"
+//       xmlns="http://www.w3.org/2000/svg"
+//       aria-hidden="true"
+//     >
+//       <circle cx="40" cy="27" r="17" fill="#A6171C" opacity="0.82" />
+//       <ellipse cx="40" cy="66" rx="26" ry="19" fill="#A6171C" opacity="0.82" />
+//     </svg>
+//   )
+// }
 
 // ─── Section ──────────────────────────────────────────────────────────────────
 

@@ -1,8 +1,7 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
 
 import Stamp from '@/components/ui/Stamp'
 import { PROJECTS } from '@/lib/projects'
@@ -33,19 +32,25 @@ function Lightbox({ src, alt, onClose }: LightboxProps): React.JSX.Element {
       if (e.key === 'Escape') onClose()
     }
     document.addEventListener('keydown', handleKey)
-    return () => document.removeEventListener('keydown', handleKey)
+    return (): void => document.removeEventListener('keydown', handleKey)
   }, [onClose])
 
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm"
-      onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-label={alt}
     >
+      {/* Backdrop click target */}
       <button
-        className="absolute top-4 right-4 cursor-pointer text-white/70 transition-colors hover:text-white"
+        className="absolute inset-0 h-full w-full cursor-default"
+        onClick={onClose}
+        aria-label="Fermer la lightbox"
+        tabIndex={-1}
+      />
+      <button
+        className="absolute top-4 right-4 z-10 cursor-pointer text-white/70 transition-colors hover:text-white"
         onClick={onClose}
         aria-label="Fermer"
       >
@@ -61,7 +66,7 @@ function Lightbox({ src, alt, onClose }: LightboxProps): React.JSX.Element {
           <line x1="6" y1="6" x2="18" y2="18" />
         </svg>
       </button>
-      <div className="relative max-h-[90vh] max-w-[90vw]" onClick={(e) => e.stopPropagation()}>
+      <div className="relative z-10 max-h-[90vh] max-w-[90vw]">
         <Image
           src={src}
           alt={alt}
@@ -123,7 +128,7 @@ function Polaroid({ photo, onPhotoClick }: PolaroidProps): React.JSX.Element {
       <button
         className="polaroid-card bg-paper cursor-zoom-in p-0 text-left"
         style={cardStyle}
-        onClick={() => onPhotoClick(photo.link!, photo.caption)}
+        onClick={() => onPhotoClick(photo.link ?? '', photo.caption)}
         aria-label={`Agrandir : ${photo.caption}`}
       >
         {imageContent}
